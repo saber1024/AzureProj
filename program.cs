@@ -1,6 +1,6 @@
 using System;
 delegate double function(double x);
-
+delegate void message(string s);
 class Multiplier{
      double factor;
     public Multiplier(double factor){
@@ -13,6 +13,8 @@ class Multiplier{
 }
 
 class Program{
+    private const string S = "jane";
+
     static double Square(double x){
         return x * x;
     }
@@ -24,14 +26,20 @@ class Program{
         }
         return result;
     }
+
+    static void showMessage(string s){
+          Console.WriteLine(s);
+    }
+
+    static void MessageWithArgment(string mess,message m){
+           m(mess);
+    }
+
     static void Main(string[] args){
          Console.WriteLine("hellow world");
          
-         double[] a = {1,2,3,4,5,6};
-         double[] square = {2.3,4.2,4.1,5.2,3.5};
-         double[] slice = Apply(a,Math.Sin);
-         Multiplier m = new Multiplier(2.0);
-         double[] alice = Apply(a,m.Mutiplily);
+         message handle = showMessage;
+         handle(S);
 
          Console.WriteLine(alice);
          
