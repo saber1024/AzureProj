@@ -41,7 +41,8 @@ class Program{
          message handle = showMessage;
          handle(S);
 
-         Console.WriteLine(alice);
+        MessageWithArgment(S,showMessage);
+
          
     }
 }
